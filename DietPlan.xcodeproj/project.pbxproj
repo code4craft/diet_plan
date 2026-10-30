@@ -1,0 +1,540 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B38B5FC3251D6F3364C64A8 /* RecordAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F66E4FF17364BE7E611E62 /* RecordAssistant.swift */; };
+		0F15ADA36CE254E9083EF0A1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22277E17DDAF9E792C44504 /* SettingsView.swift */; };
+		2547577E23E7E8A16F0C2A6B /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9043D0C231AAA1E9D1F3E6D9 /* TodayView.swift */; };
+		58C0D938F0166B0A01EEC5F4 /* ChatInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC3EEC45055840C8E451C3A /* ChatInputBar.swift */; };
+		647CC3B377DC1B461DD1E359 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258E20E1FFC7D9011FF499E1 /* Models.swift */; };
+		705CF46EC0C4ED487CB2CC18 /* DoubaoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E25E0C9D118EBD8CDB1C1F4 /* DoubaoClient.swift */; };
+		70CF31F5B6B13EB0CA7CDA3D /* ScoreEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DBAA8AF805440A53AA00D /* ScoreEngine.swift */; };
+		760EEE29916F4DF3355B6415 /* DietPlanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28A7E0641E556D0BAFB333C /* DietPlanApp.swift */; };
+		7630844CADDDBFC207FF81C1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A165461A7616BC6AC814CC5 /* Settings.swift */; };
+		9CC4B86F350EE257BB12148A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CD437B826AE1808035227 /* SplashView.swift */; };
+		AA73F9C488233A921795E7B5 /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB4E2B67737D6452A3F03DB /* HealthService.swift */; };
+		B151ADEC303F0FC3CC9775F9 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B733D729B7F90F5AB2328A31 /* ChatView.swift */; };
+		BD610CB6EB0A76BE25678B52 /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7294FB6E3F669BB8FB26087 /* PointsView.swift */; };
+		D338DE4A7A6B29A7B1EBC1A4 /* ScoreEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65504D8913992DC16570DC5E /* ScoreEngineTests.swift */; };
+		DA16D4E419798D1AAD31B818 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17FFEED41CB2B95C701BA46 /* Assets.xcassets */; };
+		E8FA452C2ADF037A392C01BB /* VoiceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA9A1392E2F00E0E08C2C02 /* VoiceInput.swift */; };
+		EC30CC9C64A1B0E639A3C77F /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5F657656C1AB37C5D479B /* ExportService.swift */; };
+		FFDE060E93DB2A3158047AC0 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674381776D11BB5DC35F8919 /* HealthStore.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BD4F441284A857CFD98E0E6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EE67A114A540307C760651E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A4EBF1626FD8B3FBC974FEE;
+			remoteInfo = DietPlan;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1153E41F3000DCFC74F67EDA /* DietPlanTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = DietPlanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		129CD437B826AE1808035227 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		258E20E1FFC7D9011FF499E1 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		5A165461A7616BC6AC814CC5 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		5CC3EEC45055840C8E451C3A /* ChatInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputBar.swift; sourceTree = "<group>"; };
+		60F66E4FF17364BE7E611E62 /* RecordAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAssistant.swift; sourceTree = "<group>"; };
+		65504D8913992DC16570DC5E /* ScoreEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreEngineTests.swift; sourceTree = "<group>"; };
+		674381776D11BB5DC35F8919 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		7C2DBAA8AF805440A53AA00D /* ScoreEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreEngine.swift; sourceTree = "<group>"; };
+		7CA9A1392E2F00E0E08C2C02 /* VoiceInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInput.swift; sourceTree = "<group>"; };
+		7E25E0C9D118EBD8CDB1C1F4 /* DoubaoClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubaoClient.swift; sourceTree = "<group>"; };
+		8646468D775E90FCBD53EEB1 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		8DB4E2B67737D6452A3F03DB /* HealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthService.swift; sourceTree = "<group>"; };
+		9043D0C231AAA1E9D1F3E6D9 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		A17FFEED41CB2B95C701BA46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A7AAC5BB905AC376A5CF594F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AAB173788DD47F85DDB733D7 /* DietPlan.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = DietPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B733D729B7F90F5AB2328A31 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		C28A7E0641E556D0BAFB333C /* DietPlanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietPlanApp.swift; sourceTree = "<group>"; };
+		C7294FB6E3F669BB8FB26087 /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
+		E0CE34C247FEB1E29F7C88C3 /* DietPlan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DietPlan.entitlements; sourceTree = "<group>"; };
+		E22277E17DDAF9E792C44504 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E2B5F657656C1AB37C5D479B /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		014B6182B2423A0A92E9351B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C28A7E0641E556D0BAFB333C /* DietPlanApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2F46D31705F49EA83B583FEE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7E25E0C9D118EBD8CDB1C1F4 /* DoubaoClient.swift */,
+				E2B5F657656C1AB37C5D479B /* ExportService.swift */,
+				8DB4E2B67737D6452A3F03DB /* HealthService.swift */,
+				674381776D11BB5DC35F8919 /* HealthStore.swift */,
+				60F66E4FF17364BE7E611E62 /* RecordAssistant.swift */,
+				5A165461A7616BC6AC814CC5 /* Settings.swift */,
+				7CA9A1392E2F00E0E08C2C02 /* VoiceInput.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7954746B3C2EE97323B8C581 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A17FFEED41CB2B95C701BA46 /* Assets.xcassets */,
+				E0CE34C247FEB1E29F7C88C3 /* DietPlan.entitlements */,
+				A7AAC5BB905AC376A5CF594F /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8627608E0D2E8F20A28459FC /* Scoring */ = {
+			isa = PBXGroup;
+			children = (
+				7C2DBAA8AF805440A53AA00D /* ScoreEngine.swift */,
+			);
+			path = Scoring;
+			sourceTree = "<group>";
+		};
+		8986D59C853313369CBC1D9D /* DietPlan */ = {
+			isa = PBXGroup;
+			children = (
+				014B6182B2423A0A92E9351B /* App */,
+				EDEF461D2753F805C2484B19 /* Models */,
+				7954746B3C2EE97323B8C581 /* Resources */,
+				8627608E0D2E8F20A28459FC /* Scoring */,
+				2F46D31705F49EA83B583FEE /* Services */,
+				E4276BC0CCC6FBF5EBAFB6BC /* Views */,
+			);
+			path = DietPlan;
+			sourceTree = "<group>";
+		};
+		8AB8A7A9DD021652057FCBAA = {
+			isa = PBXGroup;
+			children = (
+				F5E3851F81C25D3CFA78DE78 /* Config */,
+				8986D59C853313369CBC1D9D /* DietPlan */,
+				D6A95D08531C8297C9BADF59 /* DietPlanTests */,
+				AF793F46923F4B7062B862B7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF793F46923F4B7062B862B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAB173788DD47F85DDB733D7 /* DietPlan.app */,
+				1153E41F3000DCFC74F67EDA /* DietPlanTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6A95D08531C8297C9BADF59 /* DietPlanTests */ = {
+			isa = PBXGroup;
+			children = (
+				65504D8913992DC16570DC5E /* ScoreEngineTests.swift */,
+			);
+			path = DietPlanTests;
+			sourceTree = "<group>";
+		};
+		E4276BC0CCC6FBF5EBAFB6BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5CC3EEC45055840C8E451C3A /* ChatInputBar.swift */,
+				B733D729B7F90F5AB2328A31 /* ChatView.swift */,
+				C7294FB6E3F669BB8FB26087 /* PointsView.swift */,
+				E22277E17DDAF9E792C44504 /* SettingsView.swift */,
+				129CD437B826AE1808035227 /* SplashView.swift */,
+				9043D0C231AAA1E9D1F3E6D9 /* TodayView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EDEF461D2753F805C2484B19 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				258E20E1FFC7D9011FF499E1 /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F5E3851F81C25D3CFA78DE78 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				8646468D775E90FCBD53EEB1 /* Base.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A4EBF1626FD8B3FBC974FEE /* DietPlan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED0636C1C2F765AE8F3AAC26 /* Build configuration list for PBXNativeTarget "DietPlan" */;
+			buildPhases = (
+				F1BE07A7123179AE154A5999 /* Sources */,
+				CF7CA43A65BD6B0DBBC3CD13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DietPlan;
+			packageProductDependencies = (
+			);
+			productName = DietPlan;
+			productReference = AAB173788DD47F85DDB733D7 /* DietPlan.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4CE760E0FAC8C7F425A52B82 /* DietPlanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AD4D52CA1C53F301428987D /* Build configuration list for PBXNativeTarget "DietPlanTests" */;
+			buildPhases = (
+				548D00626511C0A28B4777FB /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8CB611E5467F90D69AC4FE19 /* PBXTargetDependency */,
+			);
+			name = DietPlanTests;
+			packageProductDependencies = (
+			);
+			productName = DietPlanTests;
+			productReference = 1153E41F3000DCFC74F67EDA /* DietPlanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7EE67A114A540307C760651E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					1A4EBF1626FD8B3FBC974FEE = {
+						DevelopmentTeam = R6G73RUMCT;
+						ProvisioningStyle = Automatic;
+					};
+					4CE760E0FAC8C7F425A52B82 = {
+						DevelopmentTeam = R6G73RUMCT;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4B0DBB6466A06E730071F4B9 /* Build configuration list for PBXProject "DietPlan" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 8AB8A7A9DD021652057FCBAA;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = AF793F46923F4B7062B862B7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A4EBF1626FD8B3FBC974FEE /* DietPlan */,
+				4CE760E0FAC8C7F425A52B82 /* DietPlanTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF7CA43A65BD6B0DBBC3CD13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA16D4E419798D1AAD31B818 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		548D00626511C0A28B4777FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D338DE4A7A6B29A7B1EBC1A4 /* ScoreEngineTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1BE07A7123179AE154A5999 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58C0D938F0166B0A01EEC5F4 /* ChatInputBar.swift in Sources */,
+				B151ADEC303F0FC3CC9775F9 /* ChatView.swift in Sources */,
+				760EEE29916F4DF3355B6415 /* DietPlanApp.swift in Sources */,
+				705CF46EC0C4ED487CB2CC18 /* DoubaoClient.swift in Sources */,
+				EC30CC9C64A1B0E639A3C77F /* ExportService.swift in Sources */,
+				AA73F9C488233A921795E7B5 /* HealthService.swift in Sources */,
+				FFDE060E93DB2A3158047AC0 /* HealthStore.swift in Sources */,
+				647CC3B377DC1B461DD1E359 /* Models.swift in Sources */,
+				BD610CB6EB0A76BE25678B52 /* PointsView.swift in Sources */,
+				0B38B5FC3251D6F3364C64A8 /* RecordAssistant.swift in Sources */,
+				70CF31F5B6B13EB0CA7CDA3D /* ScoreEngine.swift in Sources */,
+				7630844CADDDBFC207FF81C1 /* Settings.swift in Sources */,
+				0F15ADA36CE254E9083EF0A1 /* SettingsView.swift in Sources */,
+				9CC4B86F350EE257BB12148A /* SplashView.swift in Sources */,
+				2547577E23E7E8A16F0C2A6B /* TodayView.swift in Sources */,
+				E8FA452C2ADF037A392C01BB /* VoiceInput.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8CB611E5467F90D69AC4FE19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A4EBF1626FD8B3FBC974FEE /* DietPlan */;
+			targetProxy = BD4F441284A857CFD98E0E6B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3CD467ADECC5C07A1453559A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8646468D775E90FCBD53EEB1 /* Base.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DietPlan/Resources/DietPlan.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = DietPlan/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yihua.dietplan;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		48C5F35DFCE0AAB7B5BCBC91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yihua.DietPlanTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DietPlan.app/DietPlan";
+			};
+			name = Debug;
+		};
+		5813209FCB3AF4FF537D0B56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yihua.DietPlanTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DietPlan.app/DietPlan";
+			};
+			name = Release;
+		};
+		965DE4A66FAEC0729711FB7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = R6G73RUMCT;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.10;
+			};
+			name = Release;
+		};
+		A238971F49DCEBAC3E2EA6FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8646468D775E90FCBD53EEB1 /* Base.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DietPlan/Resources/DietPlan.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = DietPlan/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yihua.dietplan;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		BD8626FB5163093EAA744E66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = R6G73RUMCT;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.10;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B0DBB6466A06E730071F4B9 /* Build configuration list for PBXProject "DietPlan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD8626FB5163093EAA744E66 /* Debug */,
+				965DE4A66FAEC0729711FB7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6AD4D52CA1C53F301428987D /* Build configuration list for PBXNativeTarget "DietPlanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48C5F35DFCE0AAB7B5BCBC91 /* Debug */,
+				5813209FCB3AF4FF537D0B56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		ED0636C1C2F765AE8F3AAC26 /* Build configuration list for PBXNativeTarget "DietPlan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CD467ADECC5C07A1453559A /* Debug */,
+				A238971F49DCEBAC3E2EA6FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7EE67A114A540307C760651E /* Project object */;
+}
