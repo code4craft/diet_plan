@@ -26,7 +26,7 @@ targets:
     info:
       path: DietPlan/Resources/Info.plist
       properties:
-        CFBundleDisplayName: Duly
+        CFBundleDisplayName: 橄榄
         UILaunchScreen:
           UIColorName: LaunchBackground
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]

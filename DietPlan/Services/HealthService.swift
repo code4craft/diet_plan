@@ -169,7 +169,7 @@ final class HealthService {
         } catch {
             lines.append("读取失败：\(error.localizedDescription)")
         }
-        lines.append("没有数据时：请到 iPhone「设置 → 健康 → 数据访问与设备 → Duly」确认已打开对应项，并在手环 App 里打开「同步到 Apple 健康」。")
+        lines.append("没有数据时：请到 iPhone「设置 → 健康 → 数据访问与设备 → 橄榄」确认已打开对应项，并在手环 App 里打开「同步到 Apple 健康」。")
         return lines
     }
 }

@@ -19,7 +19,7 @@ final class VoiceRecorder {
 
         var errorDescription: String? {
             switch self {
-            case .permissionDenied: "没有麦克风权限，请在「设置 → Duly」里打开麦克风。"
+            case .permissionDenied: "没有麦克风权限，请在「设置 → 橄榄」里打开麦克风。"
             case .tooShort: "说话时间太短"
             }
         }

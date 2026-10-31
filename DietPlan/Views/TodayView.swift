@@ -44,7 +44,7 @@ struct TodayView: View {
                 .padding()
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Duly")
+            .navigationTitle("橄榄")
             .refreshable { await health.refresh(settings: settings) }
         }
     }

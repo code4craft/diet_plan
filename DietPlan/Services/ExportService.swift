@@ -54,7 +54,7 @@ enum ExportService {
 
     static func readmeText(_ s: AppSettings) -> String {
         """
-        Duly 数据导出 \(stamp())
+        橄榄数据导出 \(stamp())
 
         daily.csv   每天一行。结果：weight_kg / lean_mass_kg / body_fat_pct（来自体重秤）；
                     行为：sleep_hours（醒来那天计）、steps、active_kcal、intake_kcal、workout_count、workout_minutes。

@@ -1,6 +1,6 @@
-# Duly（DietPlan）
+# 橄榄（DietPlan）
 
-Duly — Here for the long run. 精密的计划带来预期的结果。
+橄榄 — 为者常成，行者常至。 精密的计划带来预期的结果。
 
 iOS 17+，SwiftUI + SwiftData + HealthKit；对话/拍照记录用火山方舟豆包解析，按住说话用火山语音识别。
 
