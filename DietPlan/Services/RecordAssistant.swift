@@ -87,8 +87,12 @@ struct RecordAssistant {
         var history = FetchDescriptor<ChatMessage>(sortBy: [SortDescriptor(\.createdAt, order: .reverse)])
         history.fetchLimit = 11
         let recent = try context.fetch(history).filter { $0.id != current.id && !$0.isError }.prefix(10).reversed()
+        // 用户消息带上发送时间，避免把昨天的对话当成今天
+        let sent = DateFormatter()
+        sent.dateFormat = "yyyy-MM-dd HH:mm"
         for m in recent where !m.text.isEmpty {
-            messages.append(["role": m.role.rawValue, "content": m.text])
+            let text = m.role == .user ? "（发送于 \(sent.string(from: m.createdAt))）\(m.text)" : m.text
+            messages.append(["role": m.role.rawValue, "content": text])
         }
 
         var content: [[String: Any]] = []
@@ -96,16 +100,30 @@ struct RecordAssistant {
             content.append(["type": "image_url",
                             "image_url": ["url": "data:image/jpeg;base64,\(jpeg.base64EncodedString())"]])
         }
-        content.append(["type": "text", "text": text.isEmpty ? "（用户只发了一张照片，请识别并记录）" : text])
+        let body = text.isEmpty ? "（用户只发了一张照片，请识别并记录）" : text
+        content.append(["type": "text", "text": "（现在是 \(Self.nowString())，今天是 \(Self.dayString(0))）\(body)"])
         messages.append(["role": "user", "content": content])
         return messages
     }
 
+    private static func nowString() -> String {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "zh_CN")
+        f.dateFormat = "yyyy-MM-dd HH:mm EEEE"
+        return f.string(from: .now)
+    }
+
+    /// 相对今天偏移 offset 天的日期，如 "2026-10-31 星期六"
+    private static func dayString(_ offset: Int) -> String {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "zh_CN")
+        f.dateFormat = "yyyy-MM-dd EEEE"
+        return f.string(from: Calendar.current.date(byAdding: .day, value: offset, to: .now)!)
+    }
+
     private func systemPrompt() throws -> String {
-        let fmt = DateFormatter()
-        fmt.locale = Locale(identifier: "zh_CN")
-        fmt.dateFormat = "yyyy-MM-dd HH:mm EEEE"
-        let now = fmt.string(from: .now)
+        let now = Self.nowString()
+        let today = String(Self.dayString(0).prefix(10))
 
         // 最近 3 天的记录，供修改/删除时引用
         let since = Calendar.current.date(byAdding: .day, value: -3, to: .now)!
@@ -126,7 +144,10 @@ struct RecordAssistant {
         1. workout（健身）：开始时间点、持续分钟数、类型（如 跑步/力量训练/游泳/骑行/瑜伽/HIIT/散步），detail 写动作、组数、强度等补充信息，calories 为估算消耗（可省略）。
         2. meal（饮食）：用餐时间、餐次 category（早餐/午餐/晚餐/加餐/饮品），detail 写识别到的食物和分量，calories 为整餐总摄入千卡（必须给出估算整数）。
 
-        当前本地时间：\(now)。用户没说时间就用当前时间；说"中午""昨晚"等请换算成具体时间。
+        当前本地时间：\(now)。
+        今天 = \(Self.dayString(0))；昨天 = \(Self.dayString(-1))；前天 = \(Self.dayString(-2))。
+        日期一律以上面的"今天"为准：历史对话可能发生在之前的日期（用户消息前标注了发送时间），不要沿用历史对话的日期。
+        用户没说时间就用当前时间；说"中午""昨晚"等请按上面的日期换算成具体时间。
         照片如果是食物，估算份量和热量；如果是健身相关（器械、运动 App 截图、手表截图），提取类型、时长、时间。
         一条消息里可以有多条记录。用户要求修改或删除已有记录时，用下面列表里的 id。
         如果用户只是闲聊或提问，actions 为空，正常简短回答。
@@ -137,8 +158,8 @@ struct RecordAssistant {
 
         只输出一个 JSON 对象，格式：
         {"reply":"给用户的一两句中文回复，可以包含估算依据","actions":[
-          {"op":"create","kind":"meal","time":"2026-01-01 12:30","category":"午餐","detail":"牛肉面一碗(约400g)","calories":650},
-          {"op":"create","kind":"workout","time":"2026-01-01 19:00","duration_min":40,"category":"跑步","detail":"5公里 配速7分"},
+          {"op":"create","kind":"meal","time":"\(today) 12:30","category":"午餐","detail":"牛肉面一碗(约400g)","calories":650},
+          {"op":"create","kind":"workout","time":"\(today) 19:00","duration_min":40,"category":"跑步","detail":"5公里 配速7分"},
           {"op":"update","id":"ab12cd","calories":500},
           {"op":"delete","id":"ab12cd"}
         ]}
