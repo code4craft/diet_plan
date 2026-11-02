@@ -10,6 +10,7 @@
 		0B38B5FC3251D6F3364C64A8 /* RecordAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F66E4FF17364BE7E611E62 /* RecordAssistant.swift */; };
 		0F15ADA36CE254E9083EF0A1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22277E17DDAF9E792C44504 /* SettingsView.swift */; };
 		2547577E23E7E8A16F0C2A6B /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9043D0C231AAA1E9D1F3E6D9 /* TodayView.swift */; };
+		2EAA54F5B202035E397B473F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71109EAA8F31BACFCBF4D7A /* Theme.swift */; };
 		58C0D938F0166B0A01EEC5F4 /* ChatInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC3EEC45055840C8E451C3A /* ChatInputBar.swift */; };
 		647CC3B377DC1B461DD1E359 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258E20E1FFC7D9011FF499E1 /* Models.swift */; };
 		705CF46EC0C4ED487CB2CC18 /* DoubaoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E25E0C9D118EBD8CDB1C1F4 /* DoubaoClient.swift */; };
@@ -58,6 +59,7 @@
 		B733D729B7F90F5AB2328A31 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C28A7E0641E556D0BAFB333C /* DietPlanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietPlanApp.swift; sourceTree = "<group>"; };
 		C7294FB6E3F669BB8FB26087 /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
+		D71109EAA8F31BACFCBF4D7A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		E0CE34C247FEB1E29F7C88C3 /* DietPlan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DietPlan.entitlements; sourceTree = "<group>"; };
 		E22277E17DDAF9E792C44504 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E2B5F657656C1AB37C5D479B /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				C7294FB6E3F669BB8FB26087 /* PointsView.swift */,
 				E22277E17DDAF9E792C44504 /* SettingsView.swift */,
 				129CD437B826AE1808035227 /* SplashView.swift */,
+				D71109EAA8F31BACFCBF4D7A /* Theme.swift */,
 				9043D0C231AAA1E9D1F3E6D9 /* TodayView.swift */,
 			);
 			path = Views;
@@ -232,11 +235,11 @@
 				};
 			};
 			buildConfigurationList = 4B0DBB6466A06E730071F4B9 /* Build configuration list for PBXProject "DietPlan" */;
-			developmentRegion = en;
+			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
-				en,
+				"zh-Hans",
 			);
 			mainGroup = 8AB8A7A9DD021652057FCBAA;
 			minimizedProjectReferenceProxies = 1;
@@ -289,6 +292,7 @@
 				7630844CADDDBFC207FF81C1 /* Settings.swift in Sources */,
 				0F15ADA36CE254E9083EF0A1 /* SettingsView.swift in Sources */,
 				9CC4B86F350EE257BB12148A /* SplashView.swift in Sources */,
+				2EAA54F5B202035E397B473F /* Theme.swift in Sources */,
 				2547577E23E7E8A16F0C2A6B /* TodayView.swift in Sources */,
 				E8FA452C2ADF037A392C01BB /* VoiceInput.swift in Sources */,
 			);

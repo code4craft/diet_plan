@@ -17,7 +17,7 @@ struct TodayView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     pointsHeader(ledger)
                     if let err = health.lastError {
-                        Text("健康数据读取失败：\(err)").font(.footnote).foregroundStyle(.red)
+                        Text("健康数据读取失败：\(err)").font(.footnote).foregroundStyle(Theme.warning)
                     }
 
                     SectionTitle("健康账户")
@@ -40,10 +40,11 @@ struct TodayView: View {
 
                     NavigationLink("查看全部记录 →") { RecordListView() }
                         .font(.subheadline)
+                        .foregroundStyle(Theme.oliveText)
                 }
                 .padding()
             }
-            .background(Color(.systemGroupedBackground))
+            .background(Theme.background)
             .navigationTitle("橄榄")
             .refreshable { await health.refresh(settings: settings) }
         }
@@ -52,21 +53,22 @@ struct TodayView: View {
     private func pointsHeader(_ ledger: Ledger) -> some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text("累计积分").font(.subheadline).foregroundStyle(.secondary)
+                Text("累计积分").font(.subheadline).foregroundStyle(Theme.oliveText)
                 Text("\(ledger.totalPoints)").font(.system(size: 40, weight: .bold, design: .rounded))
+                    .foregroundStyle(Theme.oliveDeep)
             }
             Spacer()
             if let s = ledger.daily.last {
                 VStack(alignment: .trailing, spacing: 4) {
-                    Text("今日 +\(s.total)").font(.headline)
+                    Text("今日 +\(s.total)").font(.headline).foregroundStyle(Theme.oliveDeep)
                     if let w = ledger.currentWeek {
-                        Text("本周健身 +\(w.total)").font(.subheadline).foregroundStyle(.secondary)
+                        Text("本周健身 +\(w.total)").font(.subheadline).foregroundStyle(Theme.oliveText)
                     }
                 }
             }
         }
-        .padding()
-        .background(.background, in: RoundedRectangle(cornerRadius: 16))
+        .padding(20)
+        .background(Theme.oliveSoft, in: RoundedRectangle(cornerRadius: 20))
     }
 
     private func todayGrid(_ row: Ledger.Row?, ledger: Ledger) -> some View {
@@ -80,10 +82,10 @@ struct TodayView: View {
                     Label("饮食摄入", systemImage: "fork.knife")
                     Spacer()
                     Text("\(intake) / \(target) 千卡").monospacedDigit()
-                        .foregroundStyle(intake > target ? .red : .primary)
+                        .foregroundStyle(intake > target ? Theme.warning : Theme.ink)
                 }
                 ProgressView(value: min(Double(intake), Double(target)), total: Double(target))
-                    .tint(intake > target ? .red : .green)
+                    .tint(intake > target ? Theme.warning : Theme.olive)
                 Text(intake > target ? "已超出 \(intake - target) 千卡，今日饮食未达标"
                                      : "还可摄入 \(target - intake) 千卡")
                     .font(.caption).foregroundStyle(.secondary)
@@ -119,7 +121,7 @@ enum AccountKind: String, CaseIterable, Identifiable {
         case .sleep: "睡眠"
         }
     }
-    var unit: String { self == .sleep ? "小时" : "kg" }
+    var unit: String { self == .sleep ? "小时" : "斤" }
     var symbol: String {
         switch self {
         case .weight: "scalemass"
@@ -134,6 +136,11 @@ enum AccountKind: String, CaseIterable, Identifiable {
         case .sleep: \.sleepHours
         }
     }
+    /// 用于展示的数值：健康数据内部存公斤，这里换算成斤（1 公斤 = 2 斤）
+    func displayValue(of day: HealthDay) -> Double? {
+        guard let value = day[keyPath: keyPath] else { return nil }
+        return self == .sleep ? value : value * 2
+    }
     /// 数值上升是否是好事（用于涨跌着色）
     var higherIsBetter: Bool { self != .weight }
 }
@@ -143,7 +150,7 @@ struct AccountCard: View {
     @Environment(HealthStore.self) private var health
 
     var body: some View {
-        let points = health.sortedDays.compactMap { d in d[keyPath: kind.keyPath].map { (d.day, $0) } }
+        let points = health.sortedDays.compactMap { d in kind.displayValue(of: d).map { (d.day, $0) } }
         let recent = points.filter { $0.0 >= Calendar.current.date(byAdding: .day, value: -30, to: .now)! }
         let latest = points.last
         // 与 7 天前（或之前最近一次）对比
@@ -160,7 +167,7 @@ struct AccountCard: View {
                     let delta = latest.1 - base.1
                     let good = kind.higherIsBetter ? delta >= 0 : delta <= 0
                     Text(String(format: "较 7 天前 %+.1f", delta)).font(.caption)
-                        .foregroundStyle(abs(delta) < 0.05 ? .secondary : (good ? Color.green : Color.red))
+                        .foregroundStyle(abs(delta) < 0.05 ? Theme.inkSecondary : (good ? Theme.oliveText : Theme.warning))
                 } else if let latest {
                     Text(latest.0.formatted(date: .abbreviated, time: .omitted)).font(.caption).foregroundStyle(.secondary)
                 }
@@ -169,6 +176,7 @@ struct AccountCard: View {
             Chart(recent, id: \.0) { p in
                 LineMark(x: .value("日期", p.0), y: .value(kind.title, p.1))
                     .interpolationMethod(.catmullRom)
+                    .foregroundStyle(Theme.olive)
             }
             .chartXAxis(.hidden)
             .chartYAxis(.hidden)
@@ -187,7 +195,7 @@ struct AccountDetailView: View {
 
     var body: some View {
         let from = Calendar.current.date(byAdding: .day, value: -range, to: .now)!
-        let points = health.sortedDays.filter { $0.day >= from }.compactMap { d in d[keyPath: kind.keyPath].map { (d.day, $0) } }
+        let points = health.sortedDays.filter { $0.day >= from }.compactMap { d in kind.displayValue(of: d).map { (d.day, $0) } }
 
         List {
             Section {
@@ -201,10 +209,12 @@ struct AccountDetailView: View {
                     ForEach(points, id: \.0) { p in
                         if kind == .sleep {
                             BarMark(x: .value("日期", p.0, unit: .day), y: .value("小时", p.1))
-                                .foregroundStyle(p.1 >= settings.sleepTargetHours ? Color.green : Color.orange)
+                                .foregroundStyle(p.1 >= settings.sleepTargetHours ? Theme.olive : Theme.pending)
                         } else {
                             LineMark(x: .value("日期", p.0, unit: .day), y: .value(kind.unit, p.1))
+                                .foregroundStyle(Theme.olive)
                             PointMark(x: .value("日期", p.0, unit: .day), y: .value(kind.unit, p.1))
+                                .foregroundStyle(Theme.olive)
                         }
                     }
                     if kind == .sleep {
@@ -215,6 +225,7 @@ struct AccountDetailView: View {
                 .chartYScale(domain: .automatic(includesZero: kind == .sleep))
                 .frame(height: 220)
             }
+            .listRowBackground(Theme.card)
 
             Section("明细") {
                 ForEach(points.reversed(), id: \.0) { p in
@@ -230,7 +241,9 @@ struct AccountDetailView: View {
                         .foregroundStyle(.secondary)
                 }
             }
+            .listRowBackground(Theme.card)
         }
+        .themedList()
         .navigationTitle(kind.title)
     }
 }
@@ -253,11 +266,13 @@ struct MetricTile: View {
 struct SectionTitle: View {
     let text: String
     init(_ text: String) { self.text = text }
-    var body: some View { Text(text).font(.title3.bold()) }
+    var body: some View { Text(text).font(.title3.bold()).foregroundStyle(Theme.ink).padding(.top, 4) }
 }
 
 extension View {
     func card() -> some View {
-        padding().background(.background, in: RoundedRectangle(cornerRadius: 14))
+        padding()
+            .background(Theme.card, in: RoundedRectangle(cornerRadius: 16))
+            .overlay(RoundedRectangle(cornerRadius: 16).stroke(Theme.cardBorder, lineWidth: 1))
     }
 }

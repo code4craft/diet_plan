@@ -28,6 +28,7 @@ struct SettingsView: View {
                     }
                     DatePicker("积分起始日", selection: $s.scoreStartDate, displayedComponents: .date)
                 }
+                .listRowBackground(Theme.card)
 
                 Section {
                     SecureField("火山方舟 API Key", text: $s.apiKey)
@@ -43,6 +44,7 @@ struct SettingsView: View {
                 } footer: {
                     Text("在火山方舟控制台「API Key 管理」创建 Key，并在「开通管理」开通所用模型。Key 只保存在本机钥匙串。")
                 }
+                .listRowBackground(Theme.card)
 
                 Section {
                     SecureField("API Key", text: $s.asrToken)
@@ -53,6 +55,7 @@ struct SettingsView: View {
                 } footer: {
                     Text("豆包语音控制台开通「录音文件识别 2.0」（volc.seedasr.auc）后，在「API Key 管理」复制 Key 填到这里。")
                 }
+                .listRowBackground(Theme.card)
 
                 Section {
                     Button("重新读取健康数据") { Task { await health.refresh(settings: settings) } }
@@ -63,19 +66,22 @@ struct SettingsView: View {
                             Label("分享 \(exportFiles.count) 个文件", systemImage: "square.and.arrow.up")
                         }
                     }
-                    if let exportError { Text(exportError).foregroundStyle(.red) }
+                    if let exportError { Text(exportError).foregroundStyle(Theme.warning) }
                 } header: {
                     Text("数据")
                 } footer: {
                     Text("导出每日行为与结果（daily.csv）、记录明细（records.csv）、每周健身（weekly.csv），可交给其他 AI 工具做相关性分析。")
                 }
+                .listRowBackground(Theme.card)
 
                 Section {
                     Button("清空对话记录", role: .destructive) { confirmClearChat = true }
                 } footer: {
                     Text("只删除聊天气泡，不影响已保存的饮食/健身记录。")
                 }
+                .listRowBackground(Theme.card)
             }
+            .themedList()
             .navigationTitle("设置")
             .confirmationDialog("清空所有对话？", isPresented: $confirmClearChat) {
                 Button("清空", role: .destructive) { try? context.delete(model: ChatMessage.self) }
@@ -118,6 +124,7 @@ struct HealthDiagnosticsView: View {
                 ForEach(lines, id: \.self) { Text($0).font(.footnote) }
             }
         }
+        .themedList()
         .navigationTitle("健康数据诊断")
         .task {
             try? await HealthService.shared.requestAuthorization()

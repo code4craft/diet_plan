@@ -32,7 +32,7 @@ struct ChatView: View {
                 .onChange(of: sending) { proxy.scrollTo("bottom", anchor: .bottom) }
                 .onAppear { proxy.scrollTo("bottom", anchor: .bottom) }
             }
-            .background(Color(.systemGroupedBackground))
+            .background(Theme.background)
             .safeAreaInset(edge: .bottom) {
                 ChatInputBar(input: $input, photo: $photo, focused: $focused, sending: sending, onSend: send)
             }
@@ -87,9 +87,11 @@ struct MessageRow: View {
             if !message.text.isEmpty {
                 Text(message.text)
                     .padding(.horizontal, 12).padding(.vertical, 8)
-                    .background(isUser ? Color.accentColor : Color(.secondarySystemBackground),
-                                in: RoundedRectangle(cornerRadius: 16))
-                    .foregroundStyle(isUser ? .white : (message.isError ? .red : .primary))
+                    .background(isUser ? Theme.oliveSoft : Theme.card, in: RoundedRectangle(cornerRadius: 16))
+                    .overlay {
+                        if !isUser { RoundedRectangle(cornerRadius: 16).stroke(Theme.cardBorder, lineWidth: 1) }
+                    }
+                    .foregroundStyle(message.isError ? Theme.warning : Theme.ink)
                     .textSelection(.enabled)
             }
             ForEach(records) { RecordCard(record: $0) }
@@ -111,8 +113,9 @@ struct RecordCard: View {
                     .frame(width: 48, height: 48).clipShape(RoundedRectangle(cornerRadius: 8))
             } else {
                 Image(systemName: record.kind.symbol).font(.title2)
+                    .foregroundStyle(Theme.oliveText)
                     .frame(width: 48, height: 48)
-                    .background(Color(.tertiarySystemFill), in: RoundedRectangle(cornerRadius: 8))
+                    .background(Theme.track, in: RoundedRectangle(cornerRadius: 8))
             }
             VStack(alignment: .leading, spacing: 3) {
                 HStack {
@@ -132,8 +135,8 @@ struct RecordCard: View {
             }
         }
         .padding(10)
-        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
-        .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color(.separator), lineWidth: 0.5))
+        .background(Theme.card, in: RoundedRectangle(cornerRadius: 12))
+        .overlay(RoundedRectangle(cornerRadius: 12).stroke(Theme.cardBorder, lineWidth: 1))
         .contextMenu {
             Button("删除记录", systemImage: "trash", role: .destructive) { confirmDelete = true }
         }
@@ -155,6 +158,7 @@ struct RecordListView: View {
                 Section {
                     ForEach(items) { RecordCard(record: $0) }
                         .listRowSeparator(.hidden)
+                        .listRowBackground(Color.clear)
                 } header: {
                     HStack {
                         Text(day.formatted(date: .complete, time: .omitted))
@@ -165,6 +169,7 @@ struct RecordListView: View {
             }
         }
         .listStyle(.plain)
+        .themedList()
         .navigationTitle("全部记录")
         .overlay { if records.isEmpty { ContentUnavailableView("还没有记录", systemImage: "tray") } }
     }

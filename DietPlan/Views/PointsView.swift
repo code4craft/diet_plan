@@ -24,6 +24,7 @@ struct PointsView: View {
                         streak("健身连击", ledger.weekly.last?.goal.streak ?? 0, unit: "周")
                     }
                 }
+                .listRowBackground(Theme.card)
 
                 Picker("", selection: $tab) {
                     Text("每日").tag(0)
@@ -41,6 +42,7 @@ struct PointsView: View {
                             goalBadge("饮食", s.diet)
                             Text("+\(s.total)").bold().monospacedDigit().frame(width: 40, alignment: .trailing)
                         }
+                        .listRowBackground(Theme.card)
                     }
                 } else {
                     ForEach(ledger.weekly.reversed()) { w in
@@ -54,6 +56,7 @@ struct PointsView: View {
                             goalBadge("周目标", w.goal)
                             Text("+\(w.total)").bold().monospacedDigit().frame(width: 40, alignment: .trailing)
                         }
+                        .listRowBackground(Theme.card)
                     }
                 }
 
@@ -64,14 +67,16 @@ struct PointsView: View {
                 }
                 .font(.footnote)
                 .foregroundStyle(.secondary)
+                .listRowBackground(Theme.card)
             }
+            .themedList()
             .navigationTitle("积分")
         }
     }
 
     private func stat(_ title: String, _ value: Int) -> some View {
         VStack {
-            Text("\(value)").font(.title2.bold()).monospacedDigit()
+            Text("\(value)").font(.title2.bold()).monospacedDigit().foregroundStyle(Theme.oliveText)
             Text(title).font(.caption).foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity)
@@ -87,9 +92,9 @@ struct PointsView: View {
 
     private func goalBadge(_ title: String, _ g: GoalResult) -> some View {
         let (color, symbol): (Color, String) = switch g.status {
-        case .met: (.green, "checkmark.circle.fill")
-        case .missed: (.secondary, "xmark.circle")
-        case .pending: (.orange, "clock")
+        case .met: (Theme.oliveText, "checkmark.circle.fill")
+        case .missed: (Theme.inkSecondary, "xmark.circle")
+        case .pending: (Theme.pending, "clock")
         }
         return Label(g.bonus > 0 ? "\(title)+\(g.bonus)" : title, systemImage: symbol)
             .font(.caption)

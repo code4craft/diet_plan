@@ -33,15 +33,15 @@ struct ChatInputBar: View {
             if let errorText {
                 Text(errorText)
                     .font(.footnote)
-                    .foregroundStyle(.red)
+                    .foregroundStyle(Theme.warning)
                     .padding(.horizontal, 12).padding(.vertical, 6)
-                    .background(.background, in: Capsule())
+                    .background(Theme.card, in: Capsule())
                     .transition(.opacity)
             }
             if recorder.isRecording {
                 Text(cancelZone ? "松开手指，取消发送" : "松开发送，上滑取消")
                     .font(.footnote)
-                    .foregroundStyle(cancelZone ? .red : .secondary)
+                    .foregroundStyle(cancelZone ? Theme.warning : Theme.inkSecondary)
             } else if let photo, let img = UIImage(data: photo) {
                 photoPreview(img)
             } else {
@@ -53,7 +53,7 @@ struct ChatInputBar: View {
         .padding(.top, 8)
         .padding(.bottom, 6)
         .background(
-            LinearGradient(colors: [Color(.systemGroupedBackground).opacity(0), Color(.systemGroupedBackground)],
+            LinearGradient(colors: [Theme.background.opacity(0), Theme.background],
                            startPoint: .top, endPoint: .init(x: 0.5, y: 0.3))
                 .ignoresSafeArea()
         )
@@ -85,8 +85,8 @@ struct ChatInputBar: View {
                         Label(chip.title, systemImage: chip.symbol)
                             .font(.subheadline)
                             .padding(.horizontal, 14).padding(.vertical, 8)
-                            .background(.background, in: Capsule())
-                            .overlay(Capsule().stroke(Color(.separator).opacity(0.5), lineWidth: 0.5))
+                            .background(Theme.card, in: Capsule())
+                            .overlay(Capsule().stroke(Theme.cardBorder, lineWidth: 1))
                     }
                     .buttonStyle(.plain)
                 }
@@ -117,7 +117,7 @@ struct ChatInputBar: View {
         HStack(alignment: .center, spacing: 14) {
             if recorder.isRecording {
                 Waveform(levels: recorder.levels)
-                    .foregroundStyle(cancelZone ? Color.red : Color.white)
+                    .foregroundStyle(cancelZone ? Theme.warning : Color.white)
                     .frame(maxWidth: .infinity, minHeight: 28)
             } else if transcribing {
                 HStack(spacing: 8) {
@@ -153,7 +153,7 @@ struct ChatInputBar: View {
                             .font(.body.weight(.bold))
                             .foregroundStyle(.white)
                             .frame(width: 34, height: 34)
-                            .background(Color.accentColor, in: Circle())
+                            .background(Theme.olive, in: Circle())
                     }
                     .disabled(sending)
                 } else {
@@ -169,13 +169,12 @@ struct ChatInputBar: View {
         .padding(.vertical, 14)
         .background {
             RoundedRectangle(cornerRadius: 28, style: .continuous)
-                .fill(recorder.isRecording ? AnyShapeStyle(cancelZone ? Color.red.opacity(0.15) : Color.accentColor)
-                                           : AnyShapeStyle(.background))
+                .fill(recorder.isRecording ? (cancelZone ? Theme.warning.opacity(0.15) : Theme.olive) : Theme.card)
                 .shadow(color: .black.opacity(0.08), radius: 12, y: 4)
         }
         .overlay {
             RoundedRectangle(cornerRadius: 28, style: .continuous)
-                .stroke(Color(.separator).opacity(0.4), lineWidth: 0.5)
+                .stroke(Theme.cardBorder, lineWidth: 1)
         }
         // 按住说话挂在始终存在的容器上：录音开始后内部视图会换成波形，手势不能跟着被移除
         .gesture(holdToTalk(minimumDuration: voiceMode ? 0 : 0.25), including: holdEnabled ? .all : .subviews)
@@ -190,7 +189,7 @@ struct ChatInputBar: View {
         Button(action: action) {
             Image(systemName: symbol)
                 .font(.system(size: 24, weight: .regular))
-                .foregroundStyle(.primary)
+                .foregroundStyle(Theme.ink)
                 .frame(width: 32, height: 32)
         }
         .buttonStyle(.plain)

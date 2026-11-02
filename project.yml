@@ -1,6 +1,7 @@
 name: DietPlan
 options:
   bundleIdPrefix: com.yihua
+  developmentLanguage: zh-Hans
   deploymentTarget:
     iOS: "17.0"
 settings:
@@ -27,6 +28,8 @@ targets:
       path: DietPlan/Resources/Info.plist
       properties:
         CFBundleDisplayName: 橄榄
+        # 只声明中文：日期、系统按钮等始终显示中文，不随手机语言变成英文
+        CFBundleLocalizations: [zh-Hans]
         UILaunchScreen:
           UIColorName: LaunchBackground
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]

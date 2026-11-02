@@ -6,9 +6,14 @@ struct DietPlanApp: App {
     @State private var settings = AppSettings.shared
     @State private var health = HealthStore()
 
+    init() { Theme.applyAppearance() }
+
     var body: some Scene {
         WindowGroup {
             RootView()
+                .tint(Theme.olive)
+                // 配色按浅色设计，暂不跟随系统深色模式
+                .preferredColorScheme(.light)
                 .environment(settings)
                 .environment(health)
         }
